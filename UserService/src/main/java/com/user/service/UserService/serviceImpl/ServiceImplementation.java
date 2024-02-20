@@ -1,6 +1,7 @@
 package com.user.service.UserService.serviceImpl;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,6 +19,8 @@ public class ServiceImplementation implements UserService{
 	
 	@Override
 	public User saveUser(User user) {
+		String uid = UUID.randomUUID().toString();
+		user.setUserId(uid);
 		return userRepository.save(user);
 	}
 
